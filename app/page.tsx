@@ -7,6 +7,7 @@ import Image from "next/image";
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState(false);
+  const [showContact, setShowContact] = useState(false);
 
   return (
     <div className={`${darkMode ? "dark" : ""}`}>
@@ -15,14 +16,17 @@ export default function Home() {
         <nav className={`flex justify-between items-center p-6 shadow-md ${darkMode ? "bg-white" : "bg-black"}`}>
           {/* Logo Spot */}
           <div className="flex items-center gap-2">
-            <Image
-              src="/Logo.DK.png"
-              alt="Logo"
-              width={40}
-              height={40}
-            />
-            
-            <h1 className="text-2xl font-bold text-orange-500">PAKIT</h1>
+            <Link href="/">
+              <Image
+                src={darkMode ? "/Logo.DK.png" : "/Logo.LT.png"}
+                alt="Logo"
+                width={150}
+                height={100}
+                priority
+                className="cursor-pointer"
+              />
+            </Link>
+            <h1 className="text-2xl font-bold text-orange-500"></h1>
           </div>
 
           <div className="flex items-center gap-6">
@@ -63,20 +67,88 @@ export default function Home() {
               Fulfillment at any scale.
             </p>
             {/* Waitlist Button */}
-            <button className="px-8 py-4 bg-orange-500 text-white font-semibold rounded-xl shadow-md hover:bg-orange-600 transition-colors">
+            <button
+              className="px-8 py-4 bg-orange-500 text-white font-semibold rounded-xl shadow-md hover:bg-orange-600 transition-colors"
+              onClick={() => setShowContact(true)}
+            >
               Join Waitlist
             </button>
           </div>
 
           {/* Photo next to waitlist button */}
-          <Image
-            src="/waitlist.png"
-            alt="Waitlist"
-            width={250}
-            height={250}
-            className="rounded-xl shadow-md"
-          />
+          
+          
+          
         </section>
+
+        {/* Contact Popup */}
+        {showContact && (
+          <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+            <div className={`bg-white text-black rounded-xl p-8 shadow-lg max-w-md w-full relative`}>
+              <button
+                className="absolute top-2 right-4 text-2xl font-bold text-gray-500 hover:text-gray-800"
+                onClick={() => setShowContact(false)}
+                aria-label="Close"
+              >
+                &times;
+              </button>
+              <h3 className="text-2xl font-bold mb-4">Join Waitlist</h3>
+              <form className="flex flex-col gap-4">
+                <input
+                  type="text"
+                  placeholder="Your Name"
+                  className="border rounded px-3 py-2"
+                />
+                <input
+                  type="email"
+                  placeholder="Your Email"
+                  className="border rounded px-3 py-2"
+                />
+                <textarea
+                  placeholder="Message"
+                  className="border rounded px-3 py-2"
+                  rows={4}
+                />
+                <button
+                  type="submit"
+                  className="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 transition-colors"
+                >
+                  Submit
+                </button>
+              </form>
+            </div>
+          </div>
+        )}
+
+        {/* Footer with navigation */}
+        <footer className={`w-full py-6 mt-8 ${darkMode ? "bg-white text-black" : "bg-black text-white"}`}>
+          <div className="container mx-auto flex flex-col md:flex-row justify-between items-center px-6 gap-4">
+            <div className="flex items-center gap-2">
+              <Image
+                src={darkMode ? "/Logo.DK.png" : "/Logo.LT.png"}
+                alt="Logo"
+                width={40}
+                height={40}
+              />
+              <span className="font-bold text-orange-500">PAKIT</span>
+            </div>
+            <nav className="flex gap-6">
+              <Link href="/" className="hover:text-orange-500">
+                Home
+              </Link>
+              <Link href="/about" className="hover:text-orange-500">
+                About
+              </Link>
+              <Link href="/technology" className="hover:text-orange-500">
+                Technology
+              </Link>
+              <Link href="/contact" className="hover:text-orange-500">
+                Contact
+              </Link>
+            </nav>
+            <span className="text-sm">&copy; {new Date().getFullYear()} PAKIT. All rights reserved.</span>
+          </div>
+        </footer>
       </div>
     </div>
   );

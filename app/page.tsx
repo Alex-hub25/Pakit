@@ -38,30 +38,28 @@ export default function Home() {
               <Image
                 src={darkMode ? "/Logo.DK.png" : "/Logo.LT.png"}
                 alt="Logo"
-                width={150}
-                height={100}
+                width={90}
+                height={80}
                 priority
                 className="cursor-pointer"
               />
             </Link>
             <h1 className="text-2xl font-bold text-orange-500"></h1>
           </div>
-
           <div className="flex items-center gap-6">
-            <Link href="/" className="hover:text-orange-500">
-              Home
-            </Link>
+            {/* Removed Home link */}
             <Link href="/about" className="hover:text-orange-500">
               About
             </Link>
             <Link href="/technology" className="hover:text-orange-500">
               Technology
             </Link>
+            <Link href="/pricing" className="hover:text-orange-500">
+              Pricing
+            </Link>
             <Link href="/contact" className="hover:text-orange-500">
               Contact
             </Link>
-
-            {/* Dark Mode Toggle */}
             <button
               onClick={() => setDarkMode(!darkMode)}
               className="transition flex items-center justify-center rounded-full p-2 focus:outline-none"
@@ -75,27 +73,63 @@ export default function Home() {
         </nav>
 
         {/* Hero Section */}
-        <section className="flex flex-col md:flex-row items-center justify-center gap-8 h-[80vh] text-center md:text-left px-6">
-          <div>
-            <h2 className="text-5xl font-bold mb-4">
+        <section className="flex flex-col md:flex-row items-center justify-center gap-8 h-[80vh] px-6">
+          {/* Block 1: Welcome, tagline, waitlist */}
+          <div className="flex flex-col items-center justify-center w-full md:w-1/3">
+            <h2 className="text-5xl font-bold mb-4 text-center">
               Welcome to <span className="text-orange-500">PAKIT</span>
             </h2>
-            <p className={`text-lg max-w-xl mb-6 ${darkMode ? "text-white-300" : "text-white"}`}>
+            <p className={`text-lg max-w-xl mb-6 text-center ${darkMode ? "text-white-300" : "text-white"}`}>
               Fulfillment at any scale.
             </p>
-            {/* Waitlist Button */}
             <button
-              className="px-8 py-4 bg-orange-500 text-white font-semibold rounded-xl shadow-md hover:bg-orange-600 transition-colors"
+              className="px-8 py-4 bg-orange-500 text-white font-semibold rounded-xl shadow-md hover:bg-orange-600 transition-colors mx-auto"
               onClick={() => setShowContact(true)}
             >
               Join Waitlist
             </button>
           </div>
+          {/* Block 2: Image */}
+          <div className="flex items-center justify-center w-full md:w-1/3">
+            <Image
+              src={darkMode ? "/Logo.DK.png" : "/Logo.LT.png"}
+              alt="Logo"
+              width={250}
+              height={250}
+              className="rounded-xl shadow-md"
+              priority
+            />
+          </div>
+        </section>
 
-          {/* Photo next to waitlist button */}
-          
-          
-          
+        {/* Pakit Spec Sheet BELOW the hero section */}
+        <section className="flex justify-center w-full px-6 mt-8">
+          <div className="w-full max-w-2xl bg-white/80 dark:bg-black/60 rounded-xl shadow p-8">
+            <h3 className="text-2xl font-bold mb-4 text-orange-500 text-center">PAKIT Spec Sheet</h3>
+            <ul className="list-disc list-inside space-y-2 text-base text-black dark:text-white">
+              <li>
+                <span className="font-semibold">Automated Fulfillment:</span> Streamline order processing from purchase to delivery.
+              </li>
+              <li>
+                <span className="font-semibold">Scalable Warehousing:</span> Flexible storage solutions for businesses of any size.
+              </li>
+              <li>
+                <span className="font-semibold">Real-Time Tracking:</span> Monitor inventory and shipments with live updates.
+              </li>
+              <li>
+                <span className="font-semibold">Seamless Integrations:</span> Connect with major e-commerce platforms and carriers.
+              </li>
+              <li>
+                <span className="font-semibold">Custom Packaging:</span> Enhance your brand with tailored packaging options.
+              </li>
+              <li>
+                <span className="font-semibold">Analytics Dashboard:</span> Gain insights into your fulfillment operations.
+              </li>
+              <li>
+                <span className="font-semibold">Dedicated Support:</span> Expert assistance available 24/7.
+              </li>
+            </ul>
+          </div>
         </section>
 
         {/* Contact Popup */}
@@ -139,7 +173,7 @@ export default function Home() {
 
         {/* Footer with navigation */}
         <footer className={`w-full py-6 mt-8 ${darkMode ? "bg-white text-black" : "bg-black text-white"}`}>
-          <div className="container mx-auto flex flex-col md:flex-row justify-between items-center px-6 gap-4">
+          <div className="container mx-auto flex flex-col items-center justify-center gap-4">
             <div className="flex items-center gap-2">
               <Image
                 src={darkMode ? "/Logo.DK.png" : "/Logo.LT.png"}
@@ -149,10 +183,8 @@ export default function Home() {
               />
               <span className="font-bold text-orange-500">PAKIT</span>
             </div>
-            <nav className="flex gap-6">
-              <Link href="/" className="hover:text-orange-500">
-                Home
-              </Link>
+            <nav className="flex gap-6 justify-center">
+              {/* Removed Home link */}
               <Link href="/about" className="hover:text-orange-500">
                 About
               </Link>
@@ -163,7 +195,7 @@ export default function Home() {
                 Contact
               </Link>
             </nav>
-            <span className="text-sm">&copy; {new Date().getFullYear()} PAKIT. All rights reserved.</span>
+            <span className="text-sm text-center">&copy; {new Date().getFullYear()} PAKIT. All rights reserved.</span>
           </div>
         </footer>
       </div>

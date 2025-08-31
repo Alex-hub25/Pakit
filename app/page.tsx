@@ -82,12 +82,21 @@ export default function Home() {
             <p className={`text-lg max-w-xl mb-6 text-center ${darkMode ? "text-white-300" : "text-white"}`}>
               Fulfillment at any scale.
             </p>
+            <div className="flex justify-center gap-4 mt-6">
             <button
               className="px-8 py-4 bg-orange-500 text-white font-semibold rounded-xl shadow-md hover:bg-orange-600 transition-colors mx-auto"
               onClick={() => setShowContact(true)}
             >
               Join Waitlist
             </button>
+            <Link href="/technology">
+            <button
+              className="px-8 py-4 bg-orange-500 text-white font-semibold rounded-xl shadow-md hover:bg-orange-600 transition-colors"
+            >
+              Learn More
+            </button>
+            </Link>
+            </div>
           </div>
           {/* Block 2: Image */}
           <div className="flex items-center justify-center w-full md:w-1/3">

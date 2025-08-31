@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 
+// Icons
 const SunIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
     <circle cx="12" cy="12" r="5" stroke="currentColor" strokeWidth="2" fill="currentColor"/>
@@ -22,13 +23,23 @@ const MoonIcon = () => (
   </svg>
 );
 
-export default function Pricing() {
+export default function Home() {
   const [darkMode, setDarkMode] = useState(false);
+
+  // Product images
+  const productImages = [
+    "/images/pakit-front.png",
+    "/images/pakit-side.png",
+    "/images/pakit-back.png",
+    "/images/pakit-top.png",
+  ];
+  const [selectedImage, setSelectedImage] = useState(productImages[0]);
 
   return (
     <div className={`${darkMode ? "dark" : ""}`}>
       <div className={`min-h-screen flex flex-col transition-colors ${darkMode ? "bg-white text-black" : "bg-black text-white"}`}>
-        {/* Navbar/Header */}
+        
+        {/* Navbar */}
         <nav className={`flex justify-between items-center p-6 shadow-md ${darkMode ? "bg-white" : "bg-black"}`}>
           <div className="flex items-center gap-2">
             <Link href="/">
@@ -41,107 +52,117 @@ export default function Pricing() {
                 className="cursor-pointer"
               />
             </Link>
-            <h1 className="text-2xl font-bold text-orange-500"></h1>
           </div>
           <div className="flex items-center gap-6">
-            {/* Removed Home link */}
-            <Link href="/about" className="hover:text-orange-500">
-              About
-            </Link>
-            <Link href="/technology" className="hover:text-orange-500">
-              Technology
-            </Link>
-            <Link href="/pricing" className="hover:text-orange-500">
-              Pricing
-            </Link>
-            <Link href="/contact" className="hover:text-orange-500">
-              Contact
-            </Link>
+            <Link href="/about" className="hover:text-orange-500">About</Link>
+            <Link href="/technology" className="hover:text-orange-500">Technology</Link>
+            <Link href="/pricing" className="hover:text-orange-500">Pricing</Link>
+            <Link href="/contact" className="hover:text-orange-500">Contact</Link>
             <button
               onClick={() => setDarkMode(!darkMode)}
-              className="transition flex items-center justify-center rounded-full p-2 focus:outline-none"
+              className="transition flex items-center justify-center rounded-full p-2"
               aria-label="Toggle dark mode"
-              style={{ background: "transparent", boxShadow: "none", border: "none" }}
             >
               {darkMode ? <MoonIcon /> : <SunIcon />}
             </button>
           </div>
         </nav>
 
-        {/* Technology Content */}
-        <main className="flex flex-1 flex-col items-center justify-center py-12 px-4 text-center">
-          {/* Product Section */}
-          <section className="w-full py-16 px-6 text-center">
-            <h2 className="text-3xl font-bold mb-6 text-orange-500">Our Product</h2>
-            <p className="max-w-2xl mx-auto mb-10">
-              PaKit automates shipping logistics with computer vision, API integrations,
-              and smart freight handling—so you save time and money while scaling.
-            </p>
-            <Image
-              src="/Logo.LT.png" // place in /public
-              alt="Product Demo"
-              width={600}
-              height={400}
-              className="mx-auto rounded-xl shadow-md"
-            />
-          </section>
-
-          {/* Pricing Section */}
-          <section className="w-full py-16 px-6 bg-gray-100 dark:bg-gray-900">
-            <h2 className="text-3xl font-bold mb-10 text-center text-orange-500">
-              Choose Your Plan
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-              {/* Starter */}
-              <div className="p-6 rounded-xl shadow-md bg-white dark:bg-black text-left flex flex-col">
-                <h3 className="text-xl font-semibold mb-4">Starter</h3>
-                <p className="mb-6">Perfect for small shops just getting started.</p>
-                <span className="text-3xl font-bold mb-6">$29<span className="text-lg">/mo</span></span>
-                <ul className="mb-6 space-y-2">
-                  <li>✔ 100 shipments/month</li>
-                  <li>✔ Basic API access</li>
-                  <li>✔ Email support</li>
-                </ul>
-                <button className="mt-auto px-6 py-3 bg-orange-500 text-white rounded-xl hover:bg-orange-600 transition">
-                  Get Started
-                </button>
-              </div>
-
-              {/* Growth */}
-              <div className="p-6 rounded-xl shadow-lg border-2 border-orange-500 bg-white dark:bg-black text-left flex flex-col">
-                <h3 className="text-xl font-semibold mb-4">Growth</h3>
-                <p className="mb-6">For scaling businesses needing more power.</p>
-                <span className="text-3xl font-bold mb-6">$99<span className="text-lg">/mo</span></span>
-                <ul className="mb-6 space-y-2">
-                  <li>✔ 1,000 shipments/month</li>
-                  <li>✔ Advanced API access</li>
-                  <li>✔ Priority support</li>
-                </ul>
-                <button className="mt-auto px-6 py-3 bg-orange-500 text-white rounded-xl hover:bg-orange-600 transition">
-                  Get Started
-                </button>
-              </div>
-
-              {/* Enterprise */}
-              <div className="p-6 rounded-xl shadow-md bg-white dark:bg-black text-left flex flex-col">
-                <h3 className="text-xl font-semibold mb-4">Enterprise</h3>
-                <p className="mb-6">Custom solutions for high-volume logistics.</p>
-                <span className="text-3xl font-bold mb-6">Custom</span>
-                <ul className="mb-6 space-y-2">
-                  <li>✔ Unlimited shipments</li>
-                  <li>✔ Full API + integrations</li>
-                  <li>✔ Dedicated support team</li>
-                </ul>
-                <button className="mt-auto px-6 py-3 bg-orange-500 text-white rounded-xl hover:bg-orange-600 transition">
-                  Contact Sales
-                </button>
-              </div>
-            </div>
-          </section>
-          <Link href="/" className="text-orange-500 hover:underline">Back to Home</Link>
+        {/* Hero / Waitlist */}
+        <main className="flex flex-col items-center justify-center py-12 px-4 text-center">
+          <h1 className="text-5xl font-bold mb-6 text-orange-500">PaKam™</h1>
+          <p className="max-w-2xl mb-6 text-lg">The intelligent camera module that streamlines shipping by capturing dimensions, weight, and package data instantly.</p>
         </main>
-        
-        {/* Footer with navigation */}
+
+        {/* Product Section */}
+        <section className="flex flex-col md:flex-row items-center justify-center gap-12 px-8 py-16">
+          {/* Image Gallery */}
+          <div className="flex flex-col items-center w-full md:w-1/2">
+            <Image
+              src={selectedImage}
+              alt="PaKam™ Camera Module"
+              width={500}
+              height={500}
+              className="rounded-xl shadow-md cursor-pointer transition-transform duration-300 hover:scale-105"
+              priority
+            />
+            <div className="flex gap-3 mt-4 flex-wrap justify-center">
+              {productImages.map((img, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setSelectedImage(img)}
+                  className={`rounded-lg overflow-hidden border-2 transition 
+                    ${selectedImage === img ? "border-orange-500" : "border-transparent"}`}
+                >
+                  <Image
+                    src={img}
+                    alt={`Thumbnail ${idx + 1}`}
+                    width={80}
+                    height={60}
+                    className="object-cover"
+                  />
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Product Description */}
+          <div className="w-full md:w-1/2 text-left">
+            <h2 className="text-3xl font-bold text-orange-500 mb-4">PaKam™</h2>
+            <p className="mb-6">PaKam™ eliminates bottlenecks in your shipping process by automating data capture with precision imaging and AI-driven measurement.</p>
+            <ul className="list-disc pl-5 space-y-2">
+              <li>Automatic package dimensioning</li>
+              <li>Seamless API integration with carriers</li>
+              <li>Lightweight, compact, and durable hardware</li>
+              <li>Designed for manufacturers & logistics teams</li>
+            </ul>
+            <br></br> 
+            <button className="bg-orange-500 text-white px-5 py-1 rounded-xl shadow-md hover:bg-orange-600 transition">Join Waitlist</button>
+          </div>
+         
+        </section>
+
+        {/* Pricing Section */}
+        <section className="px-8 py-16 bg-gray-100 dark:bg-gray-900">
+          <h2 className="text-4xl font-bold text-center mb-12 text-orange-500">Pricing</h2>
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {/* Starter */}
+            <div className="p-6 rounded-2xl shadow-md bg-white dark:bg-black text-center">
+              <h3 className="text-2xl font-bold mb-4">Starter</h3>
+              <p className="text-4xl font-bold mb-4">$49<span className="text-lg">/mo</span></p>
+              <ul className="space-y-2 mb-6">
+                <li>Up to 500 scans/mo</li>
+                <li>Email support</li>
+                <li>Basic reporting</li>
+              </ul>
+              <button className="bg-orange-500 text-white px-6 py-3 rounded-xl hover:bg-orange-600 transition">Get Started</button>
+            </div>
+            {/* Pro */}
+            <div className="p-6 rounded-2xl shadow-md bg-white dark:bg-black text-center border-2 border-orange-500">
+              <h3 className="text-2xl font-bold mb-4">Pro</h3>
+              <p className="text-4xl font-bold mb-4">$149<span className="text-lg">/mo</span></p>
+              <ul className="space-y-2 mb-6">
+                <li>Unlimited scans</li>
+                <li>Priority support</li>
+                <li>Advanced analytics</li>
+              </ul>
+              <button className="bg-orange-500 text-white px-6 py-3 rounded-xl hover:bg-orange-600 transition">Get Pro</button>
+            </div>
+            {/* Enterprise */}
+            <div className="p-6 rounded-2xl shadow-md bg-white dark:bg-black text-center">
+              <h3 className="text-2xl font-bold mb-4">Enterprise</h3>
+              <p className="text-4xl font-bold mb-4">Custom</p>
+              <ul className="space-y-2 mb-6">
+                <li>Dedicated account manager</li>
+                <li>Custom integrations</li>
+                <li>On-site setup & training</li>
+              </ul>
+              <button className="bg-orange-500 text-white px-6 py-3 rounded-xl hover:bg-orange-600 transition">Contact Sales</button>
+            </div>
+          </div>
+        </section>
+
+        {/* Footer */}
         <footer className={`w-full py-6 mt-8 ${darkMode ? "bg-white text-black" : "bg-black text-white"}`}>
           <div className="container mx-auto flex flex-col items-center justify-center gap-4">
             <div className="flex items-center gap-2">
@@ -154,19 +175,10 @@ export default function Pricing() {
               <span className="font-bold text-orange-500">PAKIT</span>
             </div>
             <nav className="flex gap-6 justify-center">
-              {/* Removed Home link */}
-              <Link href="/about" className="hover:text-orange-500">
-                About
-              </Link>
-              <Link href="/technology" className="hover:text-orange-500">
-                Technology
-              </Link>
-              <Link href="/pricing" className="hover:text-orange-500">
-              Pricing
-              </Link>
-              <Link href="/contact" className="hover:text-orange-500">
-                Contact
-              </Link>
+              <Link href="/about" className="hover:text-orange-500">About</Link>
+              <Link href="/technology" className="hover:text-orange-500">Technology</Link>
+              <Link href="/pricing" className="hover:text-orange-500">Pricing</Link>
+              <Link href="/contact" className="hover:text-orange-500">Contact</Link>
             </nav>
             <span className="text-sm text-center">&copy; {new Date().getFullYear()} PAKIT. All rights reserved.</span>
           </div>

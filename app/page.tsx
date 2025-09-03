@@ -1,10 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-// Add these SVGs for icons
 const SunIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
     <circle cx="12" cy="12" r="5" stroke="currentColor" strokeWidth="2" fill="currentColor"/>
@@ -26,13 +25,21 @@ const MoonIcon = () => (
 export default function Home() {
   const [darkMode, setDarkMode] = useState(false);
   const [showContact, setShowContact] = useState(false);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  // Hydration-safe
+  useEffect(() => setMounted(true), []);
+  if (!mounted) return null;
 
   return (
     <div className={`${darkMode ? "dark" : ""}`}>
       <div className={`min-h-screen transition-colors ${darkMode ? "bg-white text-black" : "bg-black text-white"}`}>
         {/* Navbar */}
         <nav className={`flex justify-between items-center p-6 shadow-md ${darkMode ? "bg-white" : "bg-black"}`}>
-          {/* Logo Spot */}
           <div className="flex items-center gap-2">
             <Link href="/">
               <Image
@@ -44,29 +51,18 @@ export default function Home() {
                 className="cursor-pointer"
               />
             </Link>
-            <h1 className="text-2xl font-bold text-orange-500"></h1>
           </div>
           <div className="flex items-center gap-6">
-            {/* Removed Home link */}
-            <Link href="/about" className="hover:text-orange-500">
-              About
-            </Link>
-            <Link href="/technology" className="hover:text-orange-500">
-              Technology
-            </Link>
-            <Link href="/pricing" className="hover:text-orange-500">
-              Pricing
-            </Link>
-            <Link href="/contact" className="hover:text-orange-500">
-              Contact
-            </Link>
+            <Link href="/about" className="hover:text-orange-500">About</Link>
+            <Link href="/technology" className="hover:text-orange-500">Technology</Link>
+            <Link href="/pricing" className="hover:text-orange-500">Pricing</Link>
+            <Link href="/contact" className="hover:text-orange-500">Contact</Link>
             <button
               onClick={() => setDarkMode(!darkMode)}
               className="transition flex items-center justify-center rounded-full p-2 focus:outline-none"
               aria-label="Toggle dark mode"
               style={{ background: "transparent", boxShadow: "none", border: "none" }}
             >
-              {/* Show Sun in light mode, Moon in dark mode */}
               {darkMode ? <MoonIcon /> : <SunIcon />}
             </button>
           </div>
@@ -74,31 +70,27 @@ export default function Home() {
 
         {/* Hero Section */}
         <section className="flex flex-col md:flex-row items-center justify-center gap-8 h-[80vh] px-6">
-          {/* Block 1: Welcome, tagline, waitlist */}
           <div className="flex flex-col items-center justify-center w-full md:w-1/3">
             <h2 className="text-5xl font-bold mb-4 text-center">
               Welcome to <span className="text-orange-500">PAKIT</span>
             </h2>
-            <p className={`text-lg max-w-xl mb-6 text-center ${darkMode ? "text-white-300" : "text-white"}`}>
+            <p className={`text-lg max-w-xl mb-6 text-center ${darkMode ? "text-black" : "text-white"}`}>
               Fulfillment at any scale.
             </p>
             <div className="flex justify-center gap-4 mt-6">
-            <button
-              className="px-8 py-4 bg-orange-500 text-white font-semibold rounded-xl shadow-md hover:bg-orange-600 transition-colors mx-auto"
-              onClick={() => setShowContact(true)}
-            >
-              Join Waitlist
-            </button>
-            <Link href="/technology">
-            <button
-              className="px-8 py-4 bg-orange-500 text-white font-semibold rounded-xl shadow-md hover:bg-orange-600 transition-colors"
-            >
-              Learn More
-            </button>
-            </Link>
+              <button
+                className="px-8 py-4 bg-orange-500 text-white font-semibold rounded-xl shadow-md hover:bg-orange-600 transition-colors"
+                onClick={() => setShowContact(true)}
+              >
+                Join Waitlist
+              </button>
+              <Link href="/technology">
+                <button className="px-8 py-4 bg-orange-500 text-white font-semibold rounded-xl shadow-md hover:bg-orange-600 transition-colors">
+                  Learn More
+                </button>
+              </Link>
             </div>
           </div>
-          {/* Block 2: Image */}
           <div className="flex items-center justify-center w-full md:w-1/3">
             <Image
               src={darkMode ? "/Logo.DK.png" : "/Logo.LT.png"}
@@ -111,32 +103,18 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Pakit Spec Sheet BELOW the hero section */}
+        {/* Spec Sheet */}
         <section className="flex justify-center w-full px-6 mt-8">
           <div className="w-full max-w-2xl bg-white/80 dark:bg-black/60 rounded-xl shadow p-8">
             <h3 className="text-2xl font-bold mb-4 text-orange-500 text-center">PAKIT Spec Sheet</h3>
             <ul className="list-disc list-inside space-y-2 text-base text-black dark:text-white">
-              <li>
-                <span className="font-semibold">Automated Fulfillment:</span> Streamline order processing from purchase to delivery.
-              </li>
-              <li>
-                <span className="font-semibold">Scalable Warehousing:</span> Flexible storage solutions for businesses of any size.
-              </li>
-              <li>
-                <span className="font-semibold">Real-Time Tracking:</span> Monitor inventory and shipments with live updates.
-              </li>
-              <li>
-                <span className="font-semibold">Seamless Integrations:</span> Connect with major e-commerce platforms and carriers.
-              </li>
-              <li>
-                <span className="font-semibold">Custom Packaging:</span> Enhance your brand with tailored packaging options.
-              </li>
-              <li>
-                <span className="font-semibold">Analytics Dashboard:</span> Gain insights into your fulfillment operations.
-              </li>
-              <li>
-                <span className="font-semibold">Dedicated Support:</span> Expert assistance available 24/7.
-              </li>
+              <li><span className="font-semibold">Automated Fulfillment:</span> Streamline order processing from purchase to delivery.</li>
+              <li><span className="font-semibold">Scalable Warehousing:</span> Flexible storage solutions for businesses of any size.</li>
+              <li><span className="font-semibold">Real-Time Tracking:</span> Monitor inventory and shipments with live updates.</li>
+              <li><span className="font-semibold">Seamless Integrations:</span> Connect with major e-commerce platforms and carriers.</li>
+              <li><span className="font-semibold">Custom Packaging:</span> Enhance your brand with tailored packaging options.</li>
+              <li><span className="font-semibold">Analytics Dashboard:</span> Gain insights into your fulfillment operations.</li>
+              <li><span className="font-semibold">Dedicated Support:</span> Expert assistance available 24/7.</li>
             </ul>
           </div>
         </section>
@@ -144,7 +122,7 @@ export default function Home() {
         {/* Contact Popup */}
         {showContact && (
           <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-            <div className={`bg-white text-black rounded-xl p-8 shadow-lg max-w-md w-full relative`}>
+            <div className="bg-white dark:bg-black text-black dark:text-white rounded-xl p-8 shadow-lg max-w-md w-full relative">
               <button
                 className="absolute top-2 right-4 text-2xl font-bold text-gray-500 hover:text-gray-800"
                 onClick={() => setShowContact(false)}
@@ -153,34 +131,66 @@ export default function Home() {
                 &times;
               </button>
               <h3 className="text-2xl font-bold mb-4">Join Waitlist</h3>
-              <form className="flex flex-col gap-4">
+              <form
+                onSubmit={async (e) => {
+                  e.preventDefault();
+                  setLoading(true);
+                  try {
+                    const res = await fetch("/api/create", {
+                      method: "POST",
+                      headers: { "Content-Type": "application/json" },
+                      body: JSON.stringify({ name, email, message, timestamp: Date.now() }),
+                    });
+                    const data = await res.json();
+                    alert("Submitted successfully!");
+                    setName(""); setEmail(""); setMessage("");
+                    setShowContact(false);
+                  } catch (err) {
+                    console.error(err);
+                    alert("Error submitting form");
+                  } finally {
+                    setLoading(false);
+                  }
+                }}
+                className="flex flex-col gap-4"
+              >
                 <input
                   type="text"
                   placeholder="Your Name"
-                  className="border rounded px-3 py-2"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  className="border rounded px-3 py-2 dark:bg-black dark:text-white"
+                  required
                 />
                 <input
                   type="email"
                   placeholder="Your Email"
-                  className="border rounded px-3 py-2"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="border rounded px-3 py-2 dark:bg-black dark:text-white"
+                  required
                 />
                 <textarea
                   placeholder="Message"
-                  className="border rounded px-3 py-2"
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  className="border rounded px-3 py-2 dark:bg-black dark:text-white"
                   rows={4}
+                  required
                 />
                 <button
                   type="submit"
+                  disabled={loading}
                   className="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 transition-colors"
                 >
-                  Submit
+                  {loading ? "Sending..." : "Submit"}
                 </button>
               </form>
             </div>
           </div>
         )}
 
-        {/* Footer with navigation */}
+        {/* Footer */}
         <footer className={`w-full py-6 mt-8 ${darkMode ? "bg-white text-black" : "bg-black text-white"}`}>
           <div className="container mx-auto flex flex-col items-center justify-center gap-4">
             <div className="flex items-center gap-2">
@@ -193,16 +203,9 @@ export default function Home() {
               <span className="font-bold text-orange-500">PAKIT</span>
             </div>
             <nav className="flex gap-6 justify-center">
-              {/* Removed Home link */}
-              <Link href="/about" className="hover:text-orange-500">
-                About
-              </Link>
-              <Link href="/technology" className="hover:text-orange-500">
-                Technology
-              </Link>
-              <Link href="/contact" className="hover:text-orange-500">
-                Contact
-              </Link>
+              <Link href="/about" className="hover:text-orange-500">About</Link>
+              <Link href="/technology" className="hover:text-orange-500">Technology</Link>
+              <Link href="/contact" className="hover:text-orange-500">Contact</Link>
             </nav>
             <span className="text-sm text-center">&copy; {new Date().getFullYear()} PAKIT. All rights reserved.</span>
           </div>
@@ -211,6 +214,7 @@ export default function Home() {
     </div>
   );
 }
+
 /*
 import Image from "next/image";
 

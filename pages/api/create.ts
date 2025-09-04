@@ -6,18 +6,24 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.status(405).json({ message: "Method not allowed" });
   }
 
-  const { name, email, message, timestamp } = req.body;
+  const { name, email, message } = req.body;
 
   try {
     const client = await clientPromise;
     const db = client.db("waitlist");
     const collection = db.collection("requests");
 
-    const result = await collection.insertOne({ name, email, message, timestamp });
+  const doc = {
+    name,
+    email,
+    message,
+    Timestamp: new Date()};
+    
+    const result = await collection.insertOne(doc);
 
     res.status(201).json({
       message: "Record created successfully",
-      data: { _id: result.insertedId, name, email, message, timestamp },
+      data: { _id: result.insertedId,  ...doc},
     });
   } catch (error) {
     console.error(error);

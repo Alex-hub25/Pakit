@@ -26,7 +26,7 @@ export default function Contact() {
   const [darkMode, setDarkMode] = useState(false);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [description, setDescription] = useState("");
+  const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
   const [response, setResponse] = useState<any>(null);
 
@@ -37,14 +37,14 @@ export default function Contact() {
       const res = await fetch("/api/create", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, description }),
+        body: JSON.stringify({ name, email, message }),
       });
       const data = await res.json();
-      setResponse(data);
-      setName(""); setEmail(""); setDescription(""); // clear form
+      alert('Submitted successfully!')
+      setName(""); setEmail(""); setMessage(""); // clear form
     } catch (err) {
       console.error(err);
-      setResponse({ message: "Error sending message" });
+      alert( "Error sending message" );
     } finally {
       setLoading(false);
     }
@@ -78,7 +78,7 @@ export default function Contact() {
           <form onSubmit={handleSubmit} className="flex flex-col gap-4 w-full max-w-md">
             <input type="text" placeholder="Your Name" value={name} onChange={(e) => setName(e.target.value)} className="border rounded px-3 py-2 dark:bg-black dark:text-white" required />
             <input type="email" placeholder="Your Email" value={email} onChange={(e) => setEmail(e.target.value)} className="border rounded px-3 py-2 dark:bg-black dark:text-white" required />
-            <textarea placeholder="Your Message" value={description} onChange={(e) => setDescription(e.target.value)} rows={4} className="border rounded px-3 py-2 dark:bg-black dark:text-white" required />
+            <textarea placeholder="Your Message" value={message} onChange={(e) => setMessage(e.target.value)} rows={4} className="border rounded px-3 py-2 dark:bg-black dark:text-white" required />
             <button type="submit" disabled={loading} className="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 transition-colors">
               {loading ? "Sending..." : "Send Message"}
             </button>

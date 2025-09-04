@@ -136,6 +136,7 @@ export default function Home() {
                   e.preventDefault();
                   setLoading(true);
                   try {
+                    console.log("Submitting:", { name, email, message});
                     const res = await fetch("/api/create", {
                       method: "POST",
                       headers: { "Content-Type": "application/json" },
@@ -145,6 +146,7 @@ export default function Home() {
                     alert("Submitted successfully!");
                     setName(""); setEmail(""); setMessage("");
                     setShowContact(false);
+                    
                   } catch (err) {
                     console.error(err);
                     alert("Error submitting form");

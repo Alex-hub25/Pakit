@@ -79,16 +79,11 @@ export default function Home() {
             </p>
             <div className="flex justify-center gap-4 mt-6">
               <button
-                className="px-8 py-4 bg-orange-500 text-white font-semibold rounded-xl shadow-md hover:bg-orange-600 transition-colors"
+                className="px-8 py-1 bg-orange-500 text-white font-semibold rounded-xl shadow-md hover:bg-orange-600 transition-colors"
                 onClick={() => setShowContact(true)}
               >
                 Join Waitlist
               </button>
-              <Link href="/technology">
-                <button className="px-8 py-4 bg-orange-500 text-white font-semibold rounded-xl shadow-md hover:bg-orange-600 transition-colors">
-                  Learn More
-                </button>
-              </Link>
             </div>
           </div>
           <div className="flex items-center justify-center w-full md:w-1/3">
@@ -101,14 +96,86 @@ export default function Home() {
               priority
             />
           </div>
+          
         </section>
+                {/* Automation Process */}
+        <section className={`w-full py-6 mt-8 ${darkMode ? "bg-white text-black" : "bg-black text-white"}`}>
+          <h2 className="text-4xl font-bold text-center mb-12 text-orange-500">Process</h2>
+          <div className="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto">
+            {/* Scan */}
+              <div className="p-6 rounded-2xl shadow-md bg-white dark:bg-black text-center border-2 border-orange-500">
+            <div className="flex flex-col items-center justify-center p-6 rounded-xl shadow-md bg-white dark:bg-black text-black dark:text-white text-left">
+              <h3 className="text-2xl font-bold  mb-4 text-orange-500">Scan</h3>
+              <Image
+              src={darkMode ? "/shutter .png" : "/shutter .png"}
+              alt="shutter"
+              width={60}
+              height={50}
+              className="rounded-xl shadow-md"
+              priority
+              />
+              <p className="gap-4 mt-6">
+          
+                Within seconds of setting your package on the scale, PaKam™ system captures your packages dimensions, weight, and package information.
+              </p>
+            </div>
+            </div>
+            {/* Print */}
+            <div className="p-6 rounded-2xl shadow-md bg-white dark:bg-black text-center border-2 border-orange-500">
+            <div className="flex flex-col items-center justify-center p-6 rounded-xl shadow-md bg-white dark:bg-black text-black dark:text-white text-left">
+              <h3 className="text-2xl font-bold mb-4 text-orange-500">Print</h3>
+              <Image
+              src={darkMode ? "/box1.png" : "/box1.png"}
+              alt="print"
+              width={60}
+              height={50}
+              className="rounded-xl shadow-md"
+              priority
+              />
+              <p className="gap-4 mt-6">
+                In the blink of an eye our system completes your fulfillment process, time to print your shipping label! Elimating manual entry of package information, rate shopping/buying,
+                and customer managment.
+              </p>
+            </div>
+            </div>
+            {/* Ship */}
+            <div className="p-6 rounded-2xl shadow-md bg-white dark:bg-black text-center border-2 border-orange-500">
+            <div className="flex flex-col items-center justify-center p-6 rounded-xl shadow-md bg-white dark:bg-black text-black dark:text-white text-left">
+              <h3 className="text-2xl font-bold mb-4 text-orange-500">Ship</h3>
+              <Image
+              src={darkMode ? "/ship.png" : "/ship.png"}
+              alt="Ship"
+              width={60}
+              height={50}
+              className="rounded-xl shadow-md"
+              priority
+              />
+              <p className="gap-4 mt-6">
+                Pakit doesn't end at when the carrier picks up the package. Our system includes end-to-end tracking information and border document managment.
+              </p>
+            </div> 
+          
+            
+        
+          </div>
+          </div>  
+            <div className="flex justify-center gap-4 mt-6">
+            <Link href="/technology">
+            <button className="justify-center px-10 py-.5 bg-orange-500 text-white font-semibold rounded-xl shadow-md hover:bg-orange-600 transition-colors">
+              Learn More
+            </button>
+            </Link>
+          </div>
+        </section>
+     
 
+               
         {/* Spec Sheet */}
         <section className="flex justify-center w-full px-6 mt-8">
           <div className="w-full max-w-2xl bg-white/80 dark:bg-black/60 rounded-xl shadow p-8">
             <h3 className="text-2xl font-bold mb-4 text-orange-500 text-center">PAKIT Spec Sheet</h3>
             <ul className="list-disc list-inside space-y-2 text-base text-black dark:text-white">
-              <li><span className="font-semibold">Automated Fulfillment:</span> Streamline order processing from purchase to delivery.</li>
+              <li><span className="font-semibold">Computer Vision:</span> .</li>
               <li><span className="font-semibold">Scalable Warehousing:</span> Flexible storage solutions for businesses of any size.</li>
               <li><span className="font-semibold">Real-Time Tracking:</span> Monitor inventory and shipments with live updates.</li>
               <li><span className="font-semibold">Seamless Integrations:</span> Connect with major e-commerce platforms and carriers.</li>
@@ -207,7 +274,10 @@ export default function Home() {
             <nav className="flex gap-6 justify-center">
               <Link href="/about" className="hover:text-orange-500">About</Link>
               <Link href="/technology" className="hover:text-orange-500">Technology</Link>
+              <Link href="/pricing" className="hover:text-orange-500">Pricing</Link>
               <Link href="/contact" className="hover:text-orange-500">Contact</Link>
+              <Link href="/privacy" className="hover:text-orange-500">Privacy Policy</Link>
+              <Link href="/terms" className="hover:text-orange-500">Terms of Service</Link>
             </nav>
             <span className="text-sm text-center">&copy; {new Date().getFullYear()} PAKIT. All rights reserved.</span>
           </div>

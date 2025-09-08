@@ -32,7 +32,7 @@ export default function Contact() {
   const [address, setAddress] =useState("");
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
-  const [response, setResponse] = useState<any>(null);
+  const [response, setResponse] = useState<string>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

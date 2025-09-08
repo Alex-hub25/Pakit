@@ -155,7 +155,7 @@ export default function Home() {
               priority
               />
               <p className="gap-4 mt-6">
-                Pakit doesn't end at when the carrier picks up the package. Our system includes end-to-end tracking information and border document managment.
+                Pakit doesn'$#39t end at when the carrier picks up the package. Our system includes end-to-end tracking information and border document managment.
               </p>
             </div> 
           </div>
@@ -242,7 +242,6 @@ export default function Home() {
                       headers: { "Content-Type": "application/json" },
                       body: JSON.stringify({ name, email, phone, company, industry, address, message, timestamp: Date.now() }),
                     });
-                    const data = await res.json();
                     alert('Submitted successfully!')
                     setName(""); setEmail(""); setPhone(""); setCompany(""), setIndustry(""), setAddress(""); setMessage(""); // clear form
                     setShowContact(false);

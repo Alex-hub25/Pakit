@@ -33,7 +33,7 @@ export default function About() {
           <div className="flex items-center gap-2">
             <Link href="/">
               <Image
-                src={darkMode ? "/Logo.DK.png" : "/Logo.LT.png"}
+                src={darkMode ? "/TD.LT.png" : "/TD.DK.png"}
                 alt="Logo"
                 width={90}
                 height={80}
@@ -83,7 +83,7 @@ export default function About() {
           <div className="container mx-auto flex flex-col items-center justify-center gap-4">
             <div className="flex items-center gap-2">
               <Image
-                src={darkMode ? "/Logo.DK.png" : "/Logo.LT.png"}
+                src={darkMode ? "/TD.LT.png" : "/TD.DK.png"}
                 alt="Logo"
                 width={40}
                 height={40}

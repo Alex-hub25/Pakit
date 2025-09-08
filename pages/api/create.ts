@@ -6,7 +6,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.status(405).json({ message: "Method not allowed" });
   }
 
-  const { name, email, message } = req.body;
+  const { name, email, phone, company, industry, address, message } = req.body;
 
   try {
     const client = await clientPromise;
@@ -16,6 +16,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   const doc = {
     name,
     email,
+    phone,
+    company,
+    industry,
+    address,
     message,
     Timestamp: new Date()};
     

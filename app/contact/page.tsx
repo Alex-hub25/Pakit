@@ -26,6 +26,10 @@ export default function Contact() {
   const [darkMode, setDarkMode] = useState(false);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [company, setCompany] =useState("");
+  const [industry, setIndustry] =useState("");
+  const [address, setAddress] =useState("");
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
   const [response, setResponse] = useState<any>(null);
@@ -37,11 +41,11 @@ export default function Contact() {
       const res = await fetch("/api/create", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, message }),
+        body: JSON.stringify({ name, email, phone, company, industry, address,  message }),
       });
       const data = await res.json();
       alert('Submitted successfully!')
-      setName(""); setEmail(""); setMessage(""); // clear form
+      setName(""); setEmail(""); setPhone(""); setCompany(""), setIndustry(""), setAddress(""); setMessage(""); // clear form
     } catch (err) {
       console.error(err);
       alert( "Error sending message" );
@@ -57,7 +61,7 @@ export default function Contact() {
         <nav className={`flex justify-between items-center shadow-md ${darkMode ? "bg-white" : "bg-black"}`} style={{ position: "sticky", top: 0, zIndex: 50, paddingTop: 0, paddingBottom: 0, minHeight: "64px" }}>
           <div className="flex items-center gap-2 py-6 px-6">
             <Link href="/">
-              <Image src={darkMode ? "/Logo.DK.png" : "/Logo.LT.png"} alt="Logo" width={90} height={80} priority className="cursor-pointer"/>
+              <Image src={darkMode ? "/TD.LT.png" : "/TD.DK.png"} alt="Logo" width={90} height={80} priority className="cursor-pointer"/>
             </Link>
           </div>
           <div className="flex items-center gap-6 py-6 px-6">
@@ -76,8 +80,12 @@ export default function Contact() {
           <h1 className="text-4xl font-bold mb-4 text-orange-500">Contact Us</h1>
           <p className="max-w-xl text-center mb-8">Fill out the form below and we'll get back to you soon.</p>
           <form onSubmit={handleSubmit} className="flex flex-col gap-4 w-full max-w-md">
-            <input type="text" placeholder="Your Name" value={name} onChange={(e) => setName(e.target.value)} className="border rounded px-3 py-2 dark:bg-black dark:text-white" required />
-            <input type="email" placeholder="Your Email" value={email} onChange={(e) => setEmail(e.target.value)} className="border rounded px-3 py-2 dark:bg-black dark:text-white" required />
+            <input type="text" placeholder="Name*" value={name} onChange={(e) => setName(e.target.value)} className="border rounded px-3 py-2 dark:bg-black dark:text-white" required />
+            <input type="email" placeholder="Email*" value={email} onChange={(e) => setEmail(e.target.value)} className="border rounded px-3 py-2 dark:bg-black dark:text-white" required />
+            <input type="text" placeholder="Phone*" value={phone} onChange={(e) => setPhone(e.target.value)} className="border rounded px-3 py-2 dark:bg-black dark:text-white" required />
+            <input type="text" placeholder="Company Name" value={company} onChange={(e) => setCompany(e.target.value)} className="border rounded px-3 py-2 dark:bg-black dark:text-white"/>
+            <input type="text" placeholder="Industry" value={industry} onChange={(e) => setIndustry(e.target.value)} className="border rounded px-3 py-2 dark:bg-black dark:text-white"/>
+            <input type="text" placeholder="Address*" value={address} onChange={(e) => setAddress(e.target.value)} className="border rounded px-3 py-2 dark:bg-black dark:text-white"required/>
             <textarea placeholder="Your Message" value={message} onChange={(e) => setMessage(e.target.value)} rows={4} className="border rounded px-3 py-2 dark:bg-black dark:text-white" required />
             <button type="submit" disabled={loading} className="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 transition-colors">
               {loading ? "Sending..." : "Send Message"}
@@ -93,7 +101,7 @@ export default function Contact() {
         <footer className={`w-full py-6 mt-8 ${darkMode ? "bg-white text-black" : "bg-black text-white"}`}>
           <div className="container mx-auto flex flex-col items-center justify-center gap-4">
             <div className="flex items-center gap-2">
-              <Image src={darkMode ? "/Logo.DK.png" : "/Logo.LT.png"} alt="Logo" width={40} height={40}/>
+              <Image src={darkMode ? "/TD.LT.png" : "/TD.DK.png"} alt="Logo" width={40} height={40}/>
               <span className="font-bold text-orange-500">PAKIT</span>
             </div>
             <nav className="flex gap-6 justify-center">

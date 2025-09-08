@@ -44,7 +44,7 @@ export default function Home() {
           <div className="flex items-center gap-2">
             <Link href="/">
               <Image
-                src={darkMode ? "/Logo.DK.png" : "/Logo.LT.png"}
+                src={darkMode ? "/TD.LT.png" : "/TD.DK.png"}
                 alt="Logo"
                 width={90}
                 height={80}
@@ -79,7 +79,7 @@ export default function Home() {
           {/* Image Gallery */}
           <div className="flex flex-col items-center w-full md:w-1/2">
             <Image
-              src={selectedImage}
+              src={"/Module1.png"}
               alt="PaKam™ Camera Module"
               width={500}
               height={500}
@@ -110,23 +110,75 @@ export default function Home() {
           <div className="w-full md:w-1/2 text-left">
             <h2 className="text-3xl font-bold text-orange-500 mb-4">PaKam™</h2>
             <p className="mb-6">PaKam™ eliminates bottlenecks in your shipping process by automating data capture with precision imaging and AI-driven measurement.</p>
-            <ul className="list-disc pl-5 space-y-2">
+            <ul className="list-disc pl-5 mb-3 space-y-1">
+              <li>Computer Vision Measuring</li>
+              <li>Monitor Bluetooth Connector</li>
+              <li>Lightweight, compact, and durable hardware</li>
+              <li>Designed for manufacturers & logistics teams</li>
+            </ul>
+             {/*<p className="text-4xl font-bold mb-3 ">$399</p>*/}{/*Product Pricing*/}
+  
+            <button className="bg-orange-500 text-white px-5 py-1 rounded-xl shadow-md hover:bg-orange-600 transition">Join Waitlist</button>
+          </div>
+          
+          
+        </section>
+        {/*Product specs */}
+        <section>
+        <main className="flex flex-col items-center justify-center py-12 px-4 text-center">
+          <h2 className="text-4xl font-bold mb-6 text-orange-500">PaKam™ Specs</h2>
+        </main>
+          <div className="flex flex-col items-center">
+          <p className="max-w-2xl mb-6 text-lg">Computer Vision, API's and More</p>
+          
+          <div className="flex flex-col md:flex-row gap-8">
+           <div>
+            <h3 className="flex flex-col items-center text-lg font-semibold mb-2">Camera</h3>
+            <ul className="list-disc pl-5 space-y-1 flex-1">
               <li>Automatic package dimensioning</li>
               <li>Seamless API integration with carriers</li>
               <li>Lightweight, compact, and durable hardware</li>
               <li>Designed for manufacturers & logistics teams</li>
             </ul>
-            <br></br> 
-            <button className="bg-orange-500 text-white px-5 py-1 rounded-xl shadow-md hover:bg-orange-600 transition">Join Waitlist</button>
+          </div> 
+           <div>
+            <h3 className="flex flex-col items-center text-lg font-semibold mb-2">Bluetooth Connector</h3>
+            <ul className="list-disc pl-5 space-y-1 flex-1">
+              <li>Automatic package dimensioning</li>
+              <li>Seamless API integration with carriers</li>
+              <li>Lightweight, compact, and durable hardware</li>
+              <li>Designed for manufacturers & logistics teams</li>
+            </ul>
           </div>
-         
+          </div> 
+          <br></br>
+          <div  className="flex flex-col md:flex-row gap-9 ">        
+          <div>
+            <h3 className="flex flex-col items-center text-lg font-semibold mb-2">Bluetooth Connector</h3>
+            <ul className="list-disc pl-5 space-y-1 flex-1">
+              <li>Automatic package dimensioning</li>
+              <li>Seamless API integration with carriers</li>
+              <li>Lightweight, compact, and durable hardware</li>
+              <li>Designed for manufacturers & logistics teams</li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="flex flex-col items-center text-lg font-semibold mb-2">Bluetooth Connector</h3>
+            <ul className="list-disc pl-5 space-y-1 flex-1">
+              <li>Automatic package dimensioning</li>
+              <li>Seamless API integration with carriers</li>
+              <li>Lightweight, compact, and durable hardware</li>
+              <li>Designed for manufacturers & logistics teams</li>
+            </ul>
+          </div>
+          </div> 
+          </div>
         </section>
-
-        {/* Pricing Section */}
+        {/* Pricing Section 
         <section className="px-8 py-16 bg-gray-100 dark:bg-gray-900">
           <h2 className="text-4xl font-bold text-center mb-12 text-orange-500">Pricing</h2>
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {/* Starter */}
+            {/* Starter 
             <div className="p-6 rounded-2xl shadow-md bg-white dark:bg-black text-center">
               <h3 className="text-2xl font-bold mb-4">Starter</h3>
               <p className="text-4xl font-bold mb-4">$49<span className="text-lg">/mo</span></p>
@@ -137,7 +189,7 @@ export default function Home() {
               </ul>
               <button className="bg-orange-500 text-white px-6 py-3 rounded-xl hover:bg-orange-600 transition">Get Started</button>
             </div>
-            {/* Pro */}
+            {/* Pro 
             <div className="p-6 rounded-2xl shadow-md bg-white dark:bg-black text-center border-2 border-orange-500">
               <h3 className="text-2xl font-bold mb-4">Pro</h3>
               <p className="text-4xl font-bold mb-4">$149<span className="text-lg">/mo</span></p>
@@ -148,7 +200,7 @@ export default function Home() {
               </ul>
               <button className="bg-orange-500 text-white px-6 py-3 rounded-xl hover:bg-orange-600 transition">Get Pro</button>
             </div>
-            {/* Enterprise */}
+            {/* Enterprise 
             <div className="p-6 rounded-2xl shadow-md bg-white dark:bg-black text-center">
               <h3 className="text-2xl font-bold mb-4">Enterprise</h3>
               <p className="text-4xl font-bold mb-4">Custom</p>
@@ -160,14 +212,12 @@ export default function Home() {
               <button className="bg-orange-500 text-white px-6 py-3 rounded-xl hover:bg-orange-600 transition">Contact Sales</button>
             </div>
           </div>
-        </section>
-
         {/* Footer */}
         <footer className={`w-full py-6 mt-8 ${darkMode ? "bg-white text-black" : "bg-black text-white"}`}>
           <div className="container mx-auto flex flex-col items-center justify-center gap-4">
             <div className="flex items-center gap-2">
               <Image
-                src={darkMode ? "/Logo.DK.png" : "/Logo.LT.png"}
+                src={darkMode ? "/TD.LT.png" : "/TD.DK.png"}
                 alt="Logo"
                 width={40}
                 height={40}

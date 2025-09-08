@@ -27,6 +27,10 @@ export default function Home() {
   const [showContact, setShowContact] = useState(false);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [company, setCompany] =useState("");
+  const [industry, setIndustry] =useState("");
+  const [address, setAddress] =useState("");
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
   const [mounted, setMounted] = useState(false);
@@ -43,7 +47,7 @@ export default function Home() {
           <div className="flex items-center gap-2">
             <Link href="/">
               <Image
-                src={darkMode ? "/Logo.DK.png" : "/Logo.LT.png"}
+                src={darkMode ? "/TD.LT.png" : "/TD.DK.png"}
                 alt="Logo"
                 width={90}
                 height={80}
@@ -154,9 +158,6 @@ export default function Home() {
                 Pakit doesn't end at when the carrier picks up the package. Our system includes end-to-end tracking information and border document managment.
               </p>
             </div> 
-          
-            
-        
           </div>
           </div>  
             <div className="flex justify-center gap-4 mt-6">
@@ -168,9 +169,41 @@ export default function Home() {
           </div>
         </section>
      
+        {/* Sales Pitch */}
+        
+        
+        <section className={`w-full py-6 mt-8 ${darkMode ? "bg-white text-black" : "bg-black text-white"}`}>
+          <h2 className="text-4xl font-bold text-center mb-12 text-orange-500">True Touchless Automation</h2>
+          <div className="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto">
+          
+            {/* Scale, Next! */}
+          <div className="p-6 rounded-xl shadow-md bg-white dark:bg-black text-black dark:text-white text-left">
+            
+            <h3 className="text-2xl font-bold mb-4 text-orange-500">Weigh it, Next!</h3>
+            <p>
+            Our technology works like a checkout scanner: the instant a package touches the scale, 
+            its information is logged and the workflow continues automatically.</p>
+          </div>
+          {/* Auto-Rate */}
+          <div className="p-6 rounded-xl shadow-md bg-white dark:bg-black text-black dark:text-white text-left">
+            <h3 className="text-2xl font-bold mb-4 text-orange-500">Auto-Rate</h3>
+            <p>
+          Manually scrolling through endless carrier rates is a thing of the past. With pre-set configurations and machine learning, 
+          our API automatically selects and schedules the best freight option — no buttons required.</p>
+          </div>
+          {/* API */}
+          <div className="p-6 rounded-xl shadow-md bg-white dark:bg-black text-black dark:text-white text-left">
+            <h3 className="text-2xl font-bold mb-4 text-orange-500">Document Pipeline</h3>
+            <p>
+                End-to-end encrypted document management gives you and customs 
+                agents a secure, centralized portal for all USMCA and commercial invoices — eliminating paper copies and manual sending.
+            </p>           
+          </div>             
+        </div>
 
+        </section>
                
-        {/* Spec Sheet */}
+        {/*Spec Sheet 
         <section className="flex justify-center w-full px-6 mt-8">
           <div className="w-full max-w-2xl bg-white/80 dark:bg-black/60 rounded-xl shadow p-8">
             <h3 className="text-2xl font-bold mb-4 text-orange-500 text-center">PAKIT Spec Sheet</h3>
@@ -184,7 +217,7 @@ export default function Home() {
               <li><span className="font-semibold">Dedicated Support:</span> Expert assistance available 24/7.</li>
             </ul>
           </div>
-        </section>
+        </section>}
 
         {/* Contact Popup */}
         {showContact && (
@@ -207,11 +240,11 @@ export default function Home() {
                     const res = await fetch("/api/create", {
                       method: "POST",
                       headers: { "Content-Type": "application/json" },
-                      body: JSON.stringify({ name, email, message, timestamp: Date.now() }),
+                      body: JSON.stringify({ name, email, phone, company, industry, address, message, timestamp: Date.now() }),
                     });
                     const data = await res.json();
-                    alert("Submitted successfully!");
-                    setName(""); setEmail(""); setMessage("");
+                    alert('Submitted successfully!')
+                    setName(""); setEmail(""); setPhone(""); setCompany(""), setIndustry(""), setAddress(""); setMessage(""); // clear form
                     setShowContact(false);
                     
                   } catch (err) {
@@ -223,36 +256,15 @@ export default function Home() {
                 }}
                 className="flex flex-col gap-4"
               >
-                <input
-                  type="text"
-                  placeholder="Your Name"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  className="border rounded px-3 py-2 dark:bg-black dark:text-white"
-                  required
-                />
-                <input
-                  type="email"
-                  placeholder="Your Email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="border rounded px-3 py-2 dark:bg-black dark:text-white"
-                  required
-                />
-                <textarea
-                  placeholder="Message"
-                  value={message}
-                  onChange={(e) => setMessage(e.target.value)}
-                  className="border rounded px-3 py-2 dark:bg-black dark:text-white"
-                  rows={4}
-                  required
-                />
-                <button
-                  type="submit"
-                  disabled={loading}
-                  className="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 transition-colors"
-                >
-                  {loading ? "Sending..." : "Submit"}
+                <input type="text" placeholder="Name*" value={name} onChange={(e) => setName(e.target.value)} className="border rounded px-3 py-2 dark:bg-black dark:text-white" required />
+                <input type="email" placeholder="Email*" value={email} onChange={(e) => setEmail(e.target.value)} className="border rounded px-3 py-2 dark:bg-black dark:text-white" required />
+                <input type="text" placeholder="Phone*" value={phone} onChange={(e) => setPhone(e.target.value)} className="border rounded px-3 py-2 dark:bg-black dark:text-white" required />
+                <input type="text" placeholder="Company Name" value={company} onChange={(e) => setCompany(e.target.value)} className="border rounded px-3 py-2 dark:bg-black dark:text-white"/>
+                <input type="text" placeholder="Industry" value={industry} onChange={(e) => setIndustry(e.target.value)} className="border rounded px-3 py-2 dark:bg-black dark:text-white"/>
+                <input type="text" placeholder="Address*" value={address} onChange={(e) => setAddress(e.target.value)} className="border rounded px-3 py-2 dark:bg-black dark:text-white"required/>
+                <textarea placeholder="Your Message" value={message} onChange={(e) => setMessage(e.target.value)} rows={4} className="border rounded px-3 py-2 dark:bg-black dark:text-white" required />
+                <button type="submit" disabled={loading} className="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 transition-colors">
+                  {loading ? "Sending..." : "Send Message"}
                 </button>
               </form>
             </div>
@@ -264,7 +276,7 @@ export default function Home() {
           <div className="container mx-auto flex flex-col items-center justify-center gap-4">
             <div className="flex items-center gap-2">
               <Image
-                src={darkMode ? "/Logo.DK.png" : "/Logo.LT.png"}
+                src={darkMode ? "/TD.LT.png" : "/TD.DK.png"}
                 alt="Logo"
                 width={40}
                 height={40}

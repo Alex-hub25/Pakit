@@ -32,7 +32,7 @@ export default function Contact() {
   const [address, setAddress] =useState("");
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
-  const [response, setResponse] = useState<string>(null);
+  const [response, setResponse] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -43,9 +43,9 @@ export default function Contact() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, email, phone, company, industry, address,  message }),
       });
-      const data = await res.json();
+      const _data = await res.json();
       alert('Submitted successfully!')
-      setName(""); setEmail(""); setPhone(""); setCompany(""), setIndustry(""), setAddress(""); setMessage(""); // clear form
+      setName(""); setEmail(""); setPhone(""); setCompany(""); setIndustry(""), setAddress(""); setMessage(""); // clear form
     } catch (err) {
       console.error(err);
       setResponse( "Error sending message" );
@@ -78,7 +78,7 @@ export default function Contact() {
         {/* Contact Content */}
         <main className="flex flex-1 flex-col items-center justify-center py-12 px-4 text-center">
           <h1 className="text-4xl font-bold mb-4 text-orange-500">Contact Us</h1>
-          <p className="max-w-xl text-center mb-8">Fill out the form below and we'll get back to you soon.</p>
+          <p className="max-w-xl text-center mb-8">Fill out the form below and we&apos;ll get back to you soon.</p>
           <form onSubmit={handleSubmit} className="flex flex-col gap-4 w-full max-w-md">
             <input type="text" placeholder="Name*" value={name} onChange={(e) => setName(e.target.value)} className="border rounded px-3 py-2 dark:bg-black dark:text-white" required />
             <input type="email" placeholder="Email*" value={email} onChange={(e) => setEmail(e.target.value)} className="border rounded px-3 py-2 dark:bg-black dark:text-white" required />

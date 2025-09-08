@@ -48,7 +48,7 @@ export default function Contact() {
       setName(""); setEmail(""); setPhone(""); setCompany(""), setIndustry(""), setAddress(""); setMessage(""); // clear form
     } catch (err) {
       console.error(err);
-      alert( "Error sending message" );
+      setResponse( "Error sending message" );
     } finally {
       setLoading(false);
     }

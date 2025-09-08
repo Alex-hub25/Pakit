@@ -43,7 +43,6 @@ export default function Contact() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, email, phone, company, industry, address,  message }),
       });
-      const _data = await res.json();
       alert('Submitted successfully!')
       setName(""); setEmail(""); setPhone(""); setCompany(""); setIndustry(""), setAddress(""); setMessage(""); // clear form
     } catch (err) {

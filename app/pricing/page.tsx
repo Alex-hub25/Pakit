@@ -129,7 +129,7 @@ export default function Home() {
           <h2 className="text-4xl font-bold mb-6 text-orange-500">PaKam™ Specs</h2>
         </main>
           <div className="flex flex-col items-center">
-          <p className="max-w-2xl mb-6 text-lg">Computer Vision, API'&#39s and More</p>
+          <p className="max-w-2xl mb-6 text-lg">Computer Vision, API'&apo;s and More</p>
           
           <div className="flex flex-col md:flex-row gap-8">
            <div>

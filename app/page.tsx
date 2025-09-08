@@ -155,7 +155,7 @@ export default function Home() {
               priority
               />
               <p className="gap-4 mt-6">
-                Pakit doesn'$#39t end at when the carrier picks up the package. Our system includes end-to-end tracking information and border document managment.
+                Pakit doesn'&apos;s end at when the carrier picks up the package. Our system includes end-to-end tracking information and border document managment.
               </p>
             </div> 
           </div>

@@ -38,7 +38,7 @@ export default function Contact() {
     e.preventDefault();
     setLoading(true);
     try {
-      const res = await fetch("/api/create", {
+      await fetch("/api/create", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, email, phone, company, industry, address,  message }),
@@ -79,6 +79,7 @@ export default function Contact() {
           <h1 className="text-4xl font-bold mb-4 text-orange-500">Contact Us</h1>
           <p className="max-w-xl text-center mb-8">Fill out the form below and we&apos;ll get back to you soon.</p>
           <form onSubmit={handleSubmit} className="flex flex-col gap-4 w-full max-w-md">
+         
             <input type="text" placeholder="Name*" value={name} onChange={(e) => setName(e.target.value)} className="border rounded px-3 py-2 dark:bg-black dark:text-white" required />
             <input type="email" placeholder="Email*" value={email} onChange={(e) => setEmail(e.target.value)} className="border rounded px-3 py-2 dark:bg-black dark:text-white" required />
             <input type="text" placeholder="Phone*" value={phone} onChange={(e) => setPhone(e.target.value)} className="border rounded px-3 py-2 dark:bg-black dark:text-white" required />

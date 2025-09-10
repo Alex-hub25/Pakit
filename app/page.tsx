@@ -28,9 +28,9 @@ export default function Home() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const [company, setCompany] =useState("");
-  const [industry, setIndustry] =useState("");
-  const [address, setAddress] =useState("");
+  const [company, setCompany] = useState("");
+  const [industry, setIndustry] = useState("");
+  const [address, setAddress] = useState("");
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
   const [mounted, setMounted] = useState(false);
@@ -100,124 +100,101 @@ export default function Home() {
               priority
             />
           </div>
-          
         </section>
-                {/* Automation Process */}
+
+        {/* Automation Process */}
         <section className={`w-full py-6 mt-8 ${darkMode ? "bg-white text-black" : "bg-black text-white"}`}>
           <h2 className="text-4xl font-bold text-center mb-12 text-orange-500">Process</h2>
           <div className="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto">
             {/* Scan */}
-              <div className="p-6 rounded-2xl shadow-md bg-white dark:bg-black text-center border-2 border-orange-500">
-            <div className="flex flex-col items-center justify-center p-6 rounded-xl shadow-md bg-white dark:bg-black text-black dark:text-white text-left">
-              <h3 className="text-2xl font-bold  mb-4 text-orange-500">Scan</h3>
-              <Image
-              src={darkMode ? "/shutter .png" : "/shutter .png"}
-              alt="shutter"
-              width={60}
-              height={50}
-              className="rounded-xl shadow-md"
-              priority
-              />
-              <p className="gap-4 mt-6">
-          
-                Within seconds of setting your package on the scale, PaKam™ system captures your packages dimensions, weight, and package information.
-              </p>
-            </div>
+            <div className="p-6 rounded-2xl shadow-md bg-white dark:bg-black text-center border-2 border-orange-500">
+              <div className="flex flex-col items-center justify-center p-6 rounded-xl shadow-md bg-white dark:bg-black text-black dark:text-white text-left">
+                <h3 className="text-2xl font-bold  mb-4 text-orange-500">Scan</h3>
+                <Image
+                  src="/shutter .png"
+                  alt="shutter"
+                  width={60}
+                  height={50}
+                  className="rounded-xl shadow-md"
+                  priority
+                />
+                <p className="gap-4 mt-6">
+                  Within seconds of setting your package on the scale, PaKam™ system captures your package&apos;s dimensions, weight, and package information.
+                </p>
+              </div>
             </div>
             {/* Print */}
             <div className="p-6 rounded-2xl shadow-md bg-white dark:bg-black text-center border-2 border-orange-500">
-            <div className="flex flex-col items-center justify-center p-6 rounded-xl shadow-md bg-white dark:bg-black text-black dark:text-white text-left">
-              <h3 className="text-2xl font-bold mb-4 text-orange-500">Print</h3>
-              <Image
-              src={darkMode ? "/box1.png" : "/box1.png"}
-              alt="print"
-              width={60}
-              height={50}
-              className="rounded-xl shadow-md"
-              priority
-              />
-              <p className="gap-4 mt-6">
-                In the blink of an eye our system completes your fulfillment process, time to print your shipping label! Elimating manual entry of package information, rate shopping/buying,
-                and customer managment.
-              </p>
-            </div>
+              <div className="flex flex-col items-center justify-center p-6 rounded-xl shadow-md bg-white dark:bg-black text-black dark:text-white text-left">
+                <h3 className="text-2xl font-bold mb-4 text-orange-500">Print</h3>
+                <Image
+                  src="/box1.png"
+                  alt="print"
+                  width={60}
+                  height={50}
+                  className="rounded-xl shadow-md"
+                  priority
+                />
+                <p className="gap-4 mt-6">
+                  In the blink of an eye our system completes your fulfillment process — time to print your shipping label! Eliminating manual entry of package information, rate shopping/buying,
+                  and customer management.
+                </p>
+              </div>
             </div>
             {/* Ship */}
             <div className="p-6 rounded-2xl shadow-md bg-white dark:bg-black text-center border-2 border-orange-500">
-            <div className="flex flex-col items-center justify-center p-6 rounded-xl shadow-md bg-white dark:bg-black text-black dark:text-white text-left">
-              <h3 className="text-2xl font-bold mb-4 text-orange-500">Ship</h3>
-              <Image
-              src={darkMode ? "/ship.png" : "/ship.png"}
-              alt="Ship"
-              width={60}
-              height={50}
-              className="rounded-xl shadow-md"
-              priority
-              />
-              <p className="gap-4 mt-6">
-                Pakit doesn't end at when the carrier picks up the package. Our system includes end-to-end tracking information and border document managment.
-              </p>
-            </div> 
+              <div className="flex flex-col items-center justify-center p-6 rounded-xl shadow-md bg-white dark:bg-black text-black dark:text-white text-left">
+                <h3 className="text-2xl font-bold mb-4 text-orange-500">Ship</h3>
+                <Image
+                  src="/ship.png"
+                  alt="Ship"
+                  width={60}
+                  height={50}
+                  className="rounded-xl shadow-md"
+                  priority
+                />
+                <p className="gap-4 mt-6">
+                  Pakit doesn&apos;t end when the carrier picks up the package. Our system includes end-to-end tracking information and border document management.
+                </p>
+              </div>
+            </div>
           </div>
-          </div>  
-            <div className="flex justify-center gap-4 mt-6">
+          <div className="flex justify-center gap-4 mt-6">
             <Link href="/technology">
-            <button className="justify-center px-10 py-.5 bg-orange-500 text-white font-semibold rounded-xl shadow-md hover:bg-orange-600 transition-colors">
-              Learn More
-            </button>
+              <button className="justify-center px-10 py-.5 bg-orange-500 text-white font-semibold rounded-xl shadow-md hover:bg-orange-600 transition-colors">
+                Learn More
+              </button>
             </Link>
           </div>
         </section>
-     
+
         {/* Sales Pitch */}
-        
-        
         <section className={`w-full py-6 mt-8 ${darkMode ? "bg-white text-black" : "bg-black text-white"}`}>
           <h2 className="text-4xl font-bold text-center mb-12 text-orange-500">True Touchless Automation</h2>
           <div className="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto">
-          
-            {/* Scale, Next! */}
-          <div className="p-6 rounded-xl shadow-md bg-white dark:bg-black text-black dark:text-white text-left">
-            
-            <h3 className="text-2xl font-bold mb-4 text-orange-500">Weigh it, Next!</h3>
-            <p>
-            Our technology works like a checkout scanner: the instant a package touches the scale, 
-            its information is logged and the workflow continues automatically.</p>
-          </div>
-          {/* Auto-Rate */}
-          <div className="p-6 rounded-xl shadow-md bg-white dark:bg-black text-black dark:text-white text-left">
-            <h3 className="text-2xl font-bold mb-4 text-orange-500">Auto-Rate</h3>
-            <p>
-          Manually scrolling through endless carrier rates is a thing of the past. With pre-set configurations and machine learning, 
-          our API automatically selects and schedules the best freight option — no buttons required.</p>
-          </div>
-          {/* API */}
-          <div className="p-6 rounded-xl shadow-md bg-white dark:bg-black text-black dark:text-white text-left">
-            <h3 className="text-2xl font-bold mb-4 text-orange-500">Document Pipeline</h3>
-            <p>
+            <div className="p-6 rounded-xl shadow-md bg-white dark:bg-black text-black dark:text-white text-left">
+              <h3 className="text-2xl font-bold mb-4 text-orange-500">Weigh it, Next!</h3>
+              <p>
+                Our technology works like a checkout scanner: the instant a package touches the scale, 
+                its information is logged and the workflow continues automatically.
+              </p>
+            </div>
+            <div className="p-6 rounded-xl shadow-md bg-white dark:bg-black text-black dark:text-white text-left">
+              <h3 className="text-2xl font-bold mb-4 text-orange-500">Auto-Rate</h3>
+              <p>
+                Manually scrolling through endless carrier rates is a thing of the past. With pre-set configurations and machine learning, 
+                our API automatically selects and schedules the best freight option — no buttons required.
+              </p>
+            </div>
+            <div className="p-6 rounded-xl shadow-md bg-white dark:bg-black text-black dark:text-white text-left">
+              <h3 className="text-2xl font-bold mb-4 text-orange-500">Document Pipeline</h3>
+              <p>
                 End-to-end encrypted document management gives you and customs 
                 agents a secure, centralized portal for all USMCA and commercial invoices — eliminating paper copies and manual sending.
-            </p>           
-          </div>             
-        </div>
-
-        </section>
-               
-        {/*Spec Sheet 
-        <section className="flex justify-center w-full px-6 mt-8">
-          <div className="w-full max-w-2xl bg-white/80 dark:bg-black/60 rounded-xl shadow p-8">
-            <h3 className="text-2xl font-bold mb-4 text-orange-500 text-center">PAKIT Spec Sheet</h3>
-            <ul className="list-disc list-inside space-y-2 text-base text-black dark:text-white">
-              <li><span className="font-semibold">Computer Vision:</span> .</li>
-              <li><span className="font-semibold">Scalable Warehousing:</span> Flexible storage solutions for businesses of any size.</li>
-              <li><span className="font-semibold">Real-Time Tracking:</span> Monitor inventory and shipments with live updates.</li>
-              <li><span className="font-semibold">Seamless Integrations:</span> Connect with major e-commerce platforms and carriers.</li>
-              <li><span className="font-semibold">Custom Packaging:</span> Enhance your brand with tailored packaging options.</li>
-              <li><span className="font-semibold">Analytics Dashboard:</span> Gain insights into your fulfillment operations.</li>
-              <li><span className="font-semibold">Dedicated Support:</span> Expert assistance available 24/7.</li>
-            </ul>
+              </p>
+            </div>
           </div>
-        </section>}
+        </section>
 
         {/* Contact Popup */}
         {showContact && (
@@ -236,17 +213,22 @@ export default function Home() {
                   e.preventDefault();
                   setLoading(true);
                   try {
-                    console.log("Submitting:", { name, email, message});
+                    console.log("Submitting:", { name, email, message });
                     const res = await fetch("/api/create", {
                       method: "POST",
                       headers: { "Content-Type": "application/json" },
                       body: JSON.stringify({ name, email, phone, company, industry, address, message, timestamp: Date.now() }),
                     });
-                    const data = await res.json();
-                    alert('Submitted successfully!')
-                    setName(""); setEmail(""); setPhone(""); setCompany(""), setIndustry(""), setAddress(""); setMessage(""); // clear form
+                    await res.json();
+                    alert("Submitted successfully!");
+                    setName("");
+                    setEmail("");
+                    setPhone("");
+                    setCompany("");
+                    setIndustry("");
+                    setAddress("");
+                    setMessage("");
                     setShowContact(false);
-                    
                   } catch (err) {
                     console.error(err);
                     alert("Error submitting form");
@@ -261,7 +243,7 @@ export default function Home() {
                 <input type="text" placeholder="Phone*" value={phone} onChange={(e) => setPhone(e.target.value)} className="border rounded px-3 py-2 dark:bg-black dark:text-white" required />
                 <input type="text" placeholder="Company Name" value={company} onChange={(e) => setCompany(e.target.value)} className="border rounded px-3 py-2 dark:bg-black dark:text-white"/>
                 <input type="text" placeholder="Industry" value={industry} onChange={(e) => setIndustry(e.target.value)} className="border rounded px-3 py-2 dark:bg-black dark:text-white"/>
-                <input type="text" placeholder="Address*" value={address} onChange={(e) => setAddress(e.target.value)} className="border rounded px-3 py-2 dark:bg-black dark:text-white"required/>
+                <input type="text" placeholder="Address*" value={address} onChange={(e) => setAddress(e.target.value)} className="border rounded px-3 py-2 dark:bg-black dark:text-white" required />
                 <textarea placeholder="Your Message" value={message} onChange={(e) => setMessage(e.target.value)} rows={4} className="border rounded px-3 py-2 dark:bg-black dark:text-white" required />
                 <button type="submit" disabled={loading} className="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 transition-colors">
                   {loading ? "Sending..." : "Send Message"}
@@ -275,12 +257,7 @@ export default function Home() {
         <footer className={`w-full py-6 mt-8 ${darkMode ? "bg-white text-black" : "bg-black text-white"}`}>
           <div className="container mx-auto flex flex-col items-center justify-center gap-4">
             <div className="flex items-center gap-2">
-              <Image
-                src={darkMode ? "/TD.LT.png" : "/TD.DK.png"}
-                alt="Logo"
-                width={40}
-                height={40}
-              />
+              <Image src={darkMode ? "/TD.LT.png" : "/TD.DK.png"} alt="Logo" width={40} height={40} />
               <span className="font-bold text-orange-500">PAKIT</span>
             </div>
             <nav className="flex gap-6 justify-center">
@@ -298,6 +275,7 @@ export default function Home() {
     </div>
   );
 }
+
 
 /*
 import Image from "next/image";

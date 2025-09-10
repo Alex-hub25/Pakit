@@ -1,6 +1,6 @@
+/** @type {import('next').NextConfig} */
 const path = require("path");
 
-/** @type {import('next').NextConfig} */
 const nextConfig = {
   webpack(config) {
     // Add support for importing SVGs as React components
@@ -20,18 +20,14 @@ const nextConfig = {
     return config;
   },
 
-  // Amplify sometimes misdetects the project root if multiple lockfiles exist
-  experimental: {
-    outputFileTracingRoot: path.join(__dirname),
-  },
+  // Explicit root so Amplify doesn’t get confused by bun.lockb
+  outputFileTracingRoot: path.join(__dirname),
 
-  // Disable Next.js telemetry in builds
-  telemetry: false,
-
-  // Use static image handling (Amplify doesn’t support default Next.js image optimizer)
+  // Amplify-safe image handling
   images: {
     unoptimized: true,
   },
 };
 
 module.exports = nextConfig;
+

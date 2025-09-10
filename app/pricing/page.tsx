@@ -171,7 +171,7 @@ export default function PricingPage() {
                 </ul>
               </div>
             </div>
-          <p className="max-w-2xl mb-6 text-lg">Computer Vision, API'&apo;s and More</p>
+          <p className="max-w-2xl mb-6 text-lg">Computer Vision, API&apo;s and More</p>
           
           <div className="flex flex-col md:flex-row gap-8">
            <div>

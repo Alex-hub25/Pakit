@@ -3,6 +3,8 @@ frontend:
   phases:
     preBuild:
       commands:
+        - rm -rf node_modules
+        - rm -rf .next
         - npm ci
     build:
       commands:

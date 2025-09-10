@@ -160,23 +160,6 @@ export default function Home() {
             </div>
           </div>
           <div className="flex justify-center gap-4 mt-6">
-            <div className="flex flex-col items-center justify-center p-6 rounded-xl shadow-md bg-white dark:bg-black text-black dark:text-white text-left">
-              <h3 className="text-2xl font-bold mb-4 text-orange-500">Ship</h3>
-              <Image
-              src={darkMode ? "/ship.png" : "/ship.png"}
-              alt="Ship"
-              width={60}
-              height={50}
-              className="rounded-xl shadow-md"
-              priority
-              />
-              <p className="gap-4 mt-6">
-                Pakit doesn'&apos;s end at when the carrier picks up the package. Our system includes end-to-end tracking information and border document managment.
-              </p>
-            </div> 
-          </div>
-          </div>  
-            <div className="flex justify-center gap-4 mt-6">
             <Link href="/technology">
               <button className="justify-center px-10 py-.5 bg-orange-500 text-white font-semibold rounded-xl shadow-md hover:bg-orange-600 transition-colors">
                 Learn More
@@ -292,6 +275,7 @@ export default function Home() {
     </div>
   );
 }
+
 
 
 /*
